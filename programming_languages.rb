@@ -1,7 +1,7 @@
 def reformat_languages(languages)
   language_attributes = {}
 
-  languages.each do |oo_or_functional, language_hash|
+  languages.each do |top_key, language_hash|
     
     language_hash.each do |language, attribute_hash|
       attribute_hash.each do |attribute, str_value|
@@ -10,7 +10,7 @@ def reformat_languages(languages)
         end
         
         language_attributes[language][:style] ||= []
-        language_attributes[language][:style] << oo_or_functional                             
+        language_attributes[language][:style] << top_key                             
         if language_attributes[language][attribute].nil?
           language_attributes[language][attribute] = str_value
         end
